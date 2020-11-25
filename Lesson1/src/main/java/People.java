@@ -11,10 +11,8 @@ public class People implements Run, Jump, Player {
     public int jumping() {
         if (Wall.getHeight() >= this.canJump) {
             return 0;
-//            System.out.println("Человек не перепрыгнул...");
         }else {
             return 1;
-//            System.out.println("Человек перепрыгнул!");
         }
     }
 
@@ -22,10 +20,8 @@ public class People implements Run, Jump, Player {
     public int running() {
         if (TreadMill.getDistance() >= this.canRun){
             return 0;
-//            System.out.println("Человек не пробежал...");
         }else {
             return 1;
-//            System.out.println("Человек пробежал!");
         }
     }
 
