@@ -12,12 +12,13 @@ public class Window extends JFrame {
         JTextField textField = new JTextField("Введите сообщение:    ");
         JButton button = new JButton("Отправить");
         JTextArea textSend = new JTextArea("Полученное сообщение:    ");
+        StringBuilder text = new StringBuilder();
 
         button.addActionListener(e -> {
-            send(textField, textSend);
+            send(textField, textSend, text);
         });
         textField.addActionListener(e -> {
-            send(textField,textSend);
+            send(textField,textSend, text);
         });
 
         add(textSend);
@@ -27,10 +28,13 @@ public class Window extends JFrame {
     }
 
 
-    private void send(JTextField textField, JTextArea textSend){
+    private void send(JTextField textField, JTextArea textSend, StringBuilder text){
         try{
             String[] strings = textField.getText().split("Введите сообщение:    ");
-            textSend.setText(strings[1]);
+            text.append(strings[1]);
+            text.append("\n");
+            textSend.setText(text.toString());
+            textField.setText("Введите сообщение:    ");
         }catch (Exception e1){
             textSend.setText("Вы не ввели сообщение!!!");
         }
